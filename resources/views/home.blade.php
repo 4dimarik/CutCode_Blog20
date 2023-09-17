@@ -8,10 +8,11 @@
                 Лучшие статьи
             </h1>
             <div class="tasks grid gap-4 grid-cols-1 lg:grid-cols-2 gap-x-10 gap-y-14 xl:gap-y-20 mt-12 md:mt-20">
-                @include('shared.post')
-                @include('shared.post')
-                @include('shared.post')
-                @include('shared.post')
+                @if($posts->isNotEmpty())
+                    @foreach($posts as $post)
+                        @include('shared.post', ['post'=>$post])
+                    @endforeach
+                @endif
             </div>
         </div>
     </main>
